@@ -56,7 +56,7 @@ contract PxlswapV2Pair is IPxlswapV2Pair, PxlswapV2ERC20 {
         uint256 value
     ) private {
         (bool success, bytes memory data) = token.call(abi.encodeWithSelector(SELECTOR, to, value));
-        require(success && (data.length == 0 || abi.decode(data, (bool))), 'UniswapV2: TRANSFER_FAILED');
+        require(success && (data.length == 0 || abi.decode(data, (bool))), 'PxlswapV2: TRANSFER_FAILED');
     }
 
     event Mint(address indexed sender, uint256 amount0, uint256 amount1);
