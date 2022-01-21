@@ -1,7 +1,8 @@
+// SPDX-License-Identifier: MIT
 pragma solidity =0.5.16;
 
-import './interfaces/IUniswapV2Factory.sol';
-import './UniswapV2Pair.sol';
+import './interfaces/IPxlswapV2Factory.sol';
+import './PxlswapV2Pair.sol';
 
 contract UniswapV2Factory is IUniswapV2Factory {
     address public feeTo;
@@ -10,13 +11,13 @@ contract UniswapV2Factory is IUniswapV2Factory {
     mapping(address => mapping(address => address)) public getPair;
     address[] public allPairs;
 
-    event PairCreated(address indexed token0, address indexed token1, address pair, uint);
+    event PairCreated(address indexed token0, address indexed token1, address pair, uint256);
 
     constructor(address _feeToSetter) public {
         feeToSetter = _feeToSetter;
     }
 
-    function allPairsLength() external view returns (uint) {
+    function allPairsLength() external view returns (uint256) {
         return allPairs.length;
     }
 
